@@ -1,3 +1,4 @@
-# My Awesome Book
+# Documenting Ubuntu desktop glich fixes
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+I'm creating this book as a self-reference document for variours Ubuntu \(generally Linux desktop\) issues and quick fixes.
+
