@@ -4,7 +4,7 @@ By default, fedora's font smoothing is not as good as Ubuntu. Even when made the
 
 #### Solution
 
-The solution consist of two steps. 
+The solution consist of two steps.
 
 1. Install `freetype-freeworld` package. Just enable for rpmfusion repository and you'll get it.
 2. Then make a fontconfig `.conf` file and store it in either `~/.config/fontconfig/` directory or `/etc/fonts/conf.d` directory. The content of the file should be like this. Save the file and reboot.
