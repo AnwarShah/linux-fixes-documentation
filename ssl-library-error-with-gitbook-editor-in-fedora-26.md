@@ -4,17 +4,19 @@ When tried to use **gitbook editor**, it throws and error that `libssl.so.1.0.0`
 
 ### Solution:
 
-The solution is quite simple. Just downloading the deb file from Ubuntu Xenial \(16.04\) archive and putting the `libssl.so.1.0.0` and `libcrypto.so.1.0.0` file in `/lib64/` fixed the issue. 
+The solution is quite simple. Just downloading the deb file from Ubuntu Xenial \(16.04\) archive and using the two file`libssl.so.1.0.0` and `libcrypto.so.1.0.0` should fix the issue.
 
 Download the archive from the link [https://packages.ubuntu.com/xenial/amd64/libssl1.0.0/download](https://packages.ubuntu.com/xenial/amd64/libssl1.0.0/download)
 
-Then extract the deb file. If `dpkg-deb` is available, then just do `dpkg-deb -R deb-file-name /directory-to-extract` like command. Anyway, once you get the libs, copy them to ``/lib64``` like this
+Then extract the deb file. If `dpkg-deb` is available, then just do `dpkg-deb -R deb-file-name /directory-to-extract` like command. 
 
-`sudo cp temp/lib/x86_64-linux-gnu/lib* /lib64/ -v`
+Now copy the two files into a directory and edit the `gitbook-editor.desktop` file's `Exec=` line to add those two files into `LD_LIBRARY_PATH` environment variable. Don't copy them directory to `/lib64` because there might be some other files with same name which can create a huge problem.
 
+The exec line in `gitbook-editor.desktop` file should look like this
 
+```bash
+Exec=env LD_LIBRARY_PATH=/opt/gitbook-editor/openssl-1.0.0 /opt/gitbook-editor/editor
+```
 
-
-
-
+Assuming the files are in `/opt/gitbook-editor/openssl-1.0.0` directory.
 
