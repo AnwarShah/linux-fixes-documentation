@@ -21,3 +21,19 @@ I found the solution from a [Manjaro Linux KDE community forum post](https://for
 
 That's it. The problem is gone for good and KDE becomes awesome again!
 
+### Solution on openSUSE 42
+
+The solution is almost identical, but need to remove `libinput` package for xorg.
+
+1. First install `xf86-input-evdev` package
+   `sudo zypper install xf86-input-evdev`
+2. Second remove `xf86-input-libinput` package
+   `sudo zypper remove xf86-input-libinput`
+3. Then do the same linking as in the previous solution
+
+
+
+
+
+
+
